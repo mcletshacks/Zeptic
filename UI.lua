@@ -742,6 +742,14 @@
                 
                 library[ "items" ].Enabled = bool
             end 
+
+            library:connection(uis.InputBegan, function(input, gp)
+                if gp then return end
+                if input.KeyCode == Enum.KeyCode.RightControl then
+                    cfg.toggle_menu(not library["items"].Enabled)
+                end
+            end)
+
                 
             return setmetatable(cfg, library)
         end 
